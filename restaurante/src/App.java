@@ -5,6 +5,7 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         Scanner sc = new Scanner(System.in);
+        Restaurante restaurante = new Restaurante();
 
         
 
@@ -24,7 +25,7 @@ public class App {
 
         switch(eleccion) {
             case 1 -> {
-                //RegistrarMesa()
+                restaurante.RegistrarMesa();
             } 
             case 2 -> {
                 //RegistrarPlato()
@@ -52,6 +53,7 @@ public class App {
                 //Salir()
             }
         }
+        sc.close();
         
     }
 }
