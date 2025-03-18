@@ -1,7 +1,7 @@
 public class Mesa {
 
-    int numero;
-    int capacidad;
+    private int numero;
+    private int capacidad;
 
     public Mesa(int numero, int capacidad) {
 
@@ -9,5 +9,7 @@ public class Mesa {
         this.capacidad = capacidad;
 
     }
+
+    public int getNumero() { return this.numero; }
 
 }

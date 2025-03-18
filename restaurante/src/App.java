@@ -28,7 +28,7 @@ public class App {
                 restaurante.RegistrarMesa();
             } 
             case 2 -> {
-                //RegistrarPlato()
+                restaurante.RegistrarPlato();
             }
             case 3 -> {
                 //RegistrarPedido()

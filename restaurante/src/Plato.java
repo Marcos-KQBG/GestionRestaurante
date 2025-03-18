@@ -1,8 +1,8 @@
 public class Plato {
     
-    String codigo;
-    String nombre;
-    Double precio;
+    private String codigo;
+    private String nombre;
+    private Double precio;
 
     public Plato(String codigo, String nombre, Double precio) {
 
@@ -11,4 +11,6 @@ public class Plato {
         this.precio = precio;
 
     }
+
+    public Double getPrecio() { return this.precio; }
 }
