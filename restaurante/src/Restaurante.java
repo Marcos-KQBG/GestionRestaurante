@@ -65,7 +65,10 @@ public class Restaurante {
 
     public void RegistrarPedido() {
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e28dce0b83fd4f0d4a58a38d7ff4f671db72c5ed
         Mesa mesaEncontrada = null;
         int numeroMesa;
         
@@ -97,7 +100,11 @@ public class Restaurante {
             System.out.println("Si se introduce un 0 parará");
             codigo = sc.next();
 
+<<<<<<< HEAD
             if (codigo.equals("0")) {
+=======
+            if (codigo.equals('0')) {
+>>>>>>> e28dce0b83fd4f0d4a58a38d7ff4f671db72c5ed
                 terminar = true;
             } else {
 
