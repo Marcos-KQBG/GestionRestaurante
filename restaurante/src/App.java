@@ -26,13 +26,13 @@ public class App {
 
             switch(eleccion) {
                 case 1 -> {
-                    restaurante.RegistrarMesa();
+                    restaurante.registrarMesa();
                 } 
                 case 2 -> {
-                    restaurante.RegistrarPlato();
+                    restaurante.registrarPlatoCarta();
                 }
                 case 3 -> {
-                    restaurante.RegistrarPedido();
+                    restaurante.registrarPedido();
                 }
                 case 4 -> {
                     //ModificarPedido()
