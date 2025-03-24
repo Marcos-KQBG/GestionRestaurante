@@ -6,6 +6,7 @@ public class Pedido {
     LinkedList<Plato> listaPlatos;
     boolean estaCompletado;
     double precioTotal;
+    int descuento;
     
 
 
@@ -14,6 +15,7 @@ public class Pedido {
         this.listaPlatos = listaPlatos;
         this.estaCompletado = false;
         this.precioTotal = this.calcularPrecioTotal();
+        this.descuento = 0;
         
 
     }
@@ -35,11 +37,12 @@ public class Pedido {
             precioTotal += plato.getPrecio();
         }
 
-        return precioTotal;
+        return precioTotal * (100 - this.descuento) / 100;
     }
     
     public void addPlato(Plato plato) { 
-        this.listaPlatos.add(plato); }
+        this.listaPlatos.add(plato);
+        this.precioTotal = this.calcularPrecioTotal(); }
     
     public boolean removePlato(String codigoPlato) {
 
@@ -48,6 +51,7 @@ public class Pedido {
             platoIterado = this.listaPlatos.get(i);
             if(platoIterado.getCodigo().equals(codigoPlato)){
                 this.listaPlatos.remove(i);
+                this.precioTotal = this.calcularPrecioTotal();
                 return true;
             } 
         }
@@ -55,6 +59,14 @@ public class Pedido {
     }
 
     public void setMesa(Mesa mesa) { this.mesaAsociada = mesa; }
+
+    public void aplicarDescuento(int descuento) {
+        this.descuento = descuento;
+    }
+
+    
+
+    
 
 
 }

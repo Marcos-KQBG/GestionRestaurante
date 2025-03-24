@@ -9,7 +9,7 @@ public class Restaurante {
     LinkedList<Pedido> pedidos = new LinkedList<>();
 
 
-    public void registrarMesa() {
+    public void registrarMesa() { 
 
         int numeroMesa;
         int capacidad;
@@ -186,6 +186,14 @@ public class Restaurante {
         
     }
 
+    public Plato cambiarPlato(Plato plato){
+        
+
+        cartaPlatos.remove(plato);
+
+        platoNuevo.registrarPlatoCarta();
+        
+    }
     public void menuModificarPedido() {
         Pedido pedido = this.getPedidoNumeroMesa();
         int decision;
@@ -240,10 +248,16 @@ public class Restaurante {
 
                     }
                     case 4 -> {
-                        Mesa nuevaMesa = this.mesaByNumber();
-                        pedido.setMesa(nuevaMesa);
-                        System.out.println("Mesa cambiada correctamente");
+                        pedido.setMesa(this.mesaByNumber());
+                        
                     }
+
+                    case 5 -> {pedido.aplicarDescuento(10);}
+                    case 6 -> {
+                        this.pedidos.remove(pedido);
+                        System.out.println("Pedido borrado correctamente");
+                    }
+                    
 
                 }
                 
@@ -252,5 +266,27 @@ public class Restaurante {
         
     }
 
+    public void menuModificarPlato() {
+        Plato plato = this.platoByCodigo();
+        int decision;
+
+        do { 
+            System.out.println("¿Qué desea hacer?");
+            System.out.println("1. Cambiar el plato");
+            System.out.println("2. Borrar el plato");
+            System.out.println("3. Salir");
+
+            System.out.println("Introduzca una opcion: ");
+
+            decision = sc.nextInt();
+            
+        } while (decision != 3);
+
+        switch(decision) {
+            case 1 -> plato.cambiarPlato();
+        }
+
+
+    }
 
 }
