@@ -186,14 +186,6 @@ public class Restaurante {
         
     }
 
-    public Plato cambiarPlato(Plato plato){
-        
-
-        cartaPlatos.remove(plato);
-
-        platoNuevo.registrarPlatoCarta();
-        
-    }
     public void menuModificarPedido() {
         Pedido pedido = this.getPedidoNumeroMesa();
         int decision;
@@ -283,8 +275,50 @@ public class Restaurante {
         } while (decision != 3);
 
         switch(decision) {
-            case 1 -> plato.cambiarPlato();
+            case 1 -> {
+                int subopcion;
+
+               
+                System.out.println("¿Que desea modificar?");
+                System.out.println("1. Código");
+                System.out.println("2. Nombre");
+                System.out.println("3. Precio");
+                System.out.println("4. Salir");
+                System.out.println("Introduzca su opcion");
+
+                subopcion = sc.nextInt();
+                    
+                
+
+                switch(subopcion){
+                    case 1 -> {
+                        System.out.println("¿Qué codigo nuevo deseas incorporar?");
+                        String codigo = sc.nextLine();sc.next();
+                        plato.setCodigo(codigo);
+                        System.out.println("Codigo cambiado correctamente");
+                    } 
+                    case 2 -> {
+                        System.out.println("¿Qué nombre nuevo deseas incorporar?");
+                        String nombre = sc.nextLine();sc.next();
+                        plato.setNombre(nombre);
+                        System.out.println("Nombre cambiado correctamente");
+                    } 
+                    case 3 -> {
+                        System.out.println("¿Qué codigo nuevo deseas incorporar?");
+                        double precio = sc.nextDouble();
+                        plato.setPrecio(precio);
+                        System.out.println("Precio cambiado correctamente");
+                    } 
+                }
+
+            }
+        
+            case 2 -> {
+                this.cartaPlatos.remove(plato);
+                System.out.println("Plato eliminado correctamente");
+            }
         }
+            
 
 
     }
