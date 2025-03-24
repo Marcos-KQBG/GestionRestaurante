@@ -38,8 +38,7 @@ public class App {
                 }
                 
                 case 5 -> {
-                    //ModificarPlato()
-                    //BorrarPlato()
+                    restaurante.menuModificarPlato();
                 }
                 case 6 -> {
                     //GuardarDatos()
