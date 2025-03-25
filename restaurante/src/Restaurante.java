@@ -25,7 +25,7 @@ public class Restaurante {
         
         Mesa mesa = new Mesa(numeroMesa, capacidad);
 
-        mesas.add(mesa);
+        this.mesas.add(mesa);
 
 
         System.out.println("Mesa creada correctamente!");
@@ -40,12 +40,10 @@ public class Restaurante {
 
        
         System.out.println("Ingresa un codigo de plato: ");
-        codigoPlato = sc.nextLine();
-        sc.next();
+        codigoPlato = sc.nextLine();sc.next();
         
         System.out.println("Ingresa el nombre del plato: ");
-        nombrePlato = sc.nextLine();
-        sc.next();
+        nombrePlato = sc.nextLine();sc.next();
 
         
         do{
@@ -203,59 +201,58 @@ public class Restaurante {
             System.out.println("Introduce una opción:");
 
             decision = sc.nextInt();
+        
+            switch(decision){
+                case 1 -> {
+                    pedido.cambiarCompletado();
+                }
+                case 2 -> {
+                    System.out.println("1. Nuevo Plato");
+                    System.out.println("2. Añadir Plato desde Carta");
+                    int subopcion;
 
-        }while(decision != 7);
+                    subopcion = sc.nextInt();
 
-        switch(decision){
-            case 1 -> {
-                pedido.cambiarCompletado();
-            }
-            case 2 -> {
-                System.out.println("1. Nuevo Plato");
-                System.out.println("2. Añadir Plato desde Carta");
-                int subopcion;
-
-                subopcion = sc.nextInt();
-
-                switch(subopcion){
-                    case 1 -> {pedido.addPlato(this.crearPlato());}
-                    case 2 -> { 
-                        System.out.println("Introduce un código de un plato: ");
-                        pedido.addPlato(this.platoByCodigo()); 
-                    }
-                    case 3 -> {
-                        String codigo;
-                        boolean control;
-                        do { 
-                            System.out.println("Introduce un código de un plato");
-                            codigo = sc.nextLine();sc.next();
-                            control = pedido.removePlato(codigo);
-                            if(control){
-                                System.out.println("Se ha borrado el plato: ");
-                            } else {
-                                System.out.println("No se ha borrado");
-                            }
-                            
-                        } while (control);
+                    switch(subopcion){
+                        case 1 -> {pedido.addPlato(this.crearPlato());}
+                        case 2 -> { 
+                            System.out.println("Introduce un código de un plato: ");
+                            pedido.addPlato(this.platoByCodigo()); 
+                        }
 
                     }
-                    case 4 -> {
-                        pedido.setMesa(this.mesaByNumber());
+                }
+                
+                case 3 -> {
+                    String codigo;
+                    boolean control;
+                    do { 
+                        System.out.println("Introduce un código de un plato");
+                        codigo = sc.nextLine();sc.next();
+                        control = pedido.removePlato(codigo);
+                        if(control){
+                            System.out.println("Se ha borrado el plato: ");
+                        } else {
+                            System.out.println("No se ha borrado");
+                        }
                         
-                    }
+                    } while (control);
 
-                    case 5 -> {pedido.aplicarDescuento(10);}
-                    case 6 -> {
-                        this.pedidos.remove(pedido);
-                        System.out.println("Pedido borrado correctamente");
-                    }
+                }
+                case 4 -> {
+                    pedido.setMesa(this.mesaByNumber());
                     
+                }
 
+                case 5 -> {pedido.aplicarDescuento(10);}
+                case 6 -> {
+                    this.pedidos.remove(pedido);
+                    System.out.println("Pedido borrado correctamente");
                 }
                 
             }
-        }
-        
+
+        }while(decision != 7);
     }
 
     public void menuModificarPlato() {

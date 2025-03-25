@@ -4,11 +4,13 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) throws Exception {
-
+        
         Scanner sc = new Scanner(System.in);
+        int eleccion;
          
         Restaurante restaurante = new Restaurante();
-        int eleccion;
+        
+        
         
         do{ 
             System.out.println("¿Que funcion desea utilizar?");
@@ -27,7 +29,7 @@ public class App {
             switch(eleccion) {
                 case 1 ->  restaurante.registrarMesa();
                  
-                case 2 ->   restaurante.registrarPlatoCarta();
+                case 2 ->  restaurante.registrarPlatoCarta();
             
                 case 3 ->  restaurante.registrarPedido();
                 
@@ -44,11 +46,13 @@ public class App {
                     restaurante.setDatos(datos);
                 }
                 case 8 -> {
+                    Persistencia.guardarDatos(restaurante.getDatos());
                     System.out.println("Saliendo del programa...");
                 }
                 default -> System.out.println("Opcion no valida intentelo nuevamente");
             }
-            sc.close();
+            
         }while (eleccion != 8);
+        
     } 
 }
