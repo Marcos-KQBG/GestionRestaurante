@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class App {
@@ -24,31 +25,28 @@ public class App {
             eleccion = sc.nextInt();
 
             switch(eleccion) {
-                case 1 -> {
-                    restaurante.registrarMesa();
-                } 
-                case 2 -> {
-                    restaurante.registrarPlatoCarta();
-                }
-                case 3 -> {
-                    restaurante.registrarPedido();
-                }
-                case 4 -> {
-                    restaurante.menuModificarPedido();
-                }
+                case 1 ->  restaurante.registrarMesa();
+                 
+                case 2 ->   restaurante.registrarPlatoCarta();
+            
+                case 3 ->  restaurante.registrarPedido();
                 
-                case 5 -> {
-                    restaurante.menuModificarPlato();
-                }
+                case 4 ->  restaurante.menuModificarPedido();
+                
+                case 5 -> restaurante.menuModificarPlato();
+                
                 case 6 -> {
-                    //GuardarDatos()
+                    LinkedList<Object>[] datos = restaurante.getDatos(); 
+                    Persistencia.guardarDatos(datos);
                 }
                 case 7 -> {
-                    //CargarDatos()
+                    LinkedList<?>[] datos = Persistencia.cargarDatos();
+                    restaurante.setDatos(datos);
                 }
                 case 8 -> {
-                    //Salir()
+                    System.out.println("Saliendo del programa...");
                 }
+                default -> System.out.println("Opcion no valida intentelo nuevamente");
             }
             sc.close();
         }while (eleccion != 8);

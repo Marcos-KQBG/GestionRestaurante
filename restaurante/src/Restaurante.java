@@ -323,4 +323,20 @@ public class Restaurante {
 
     }
 
+    public LinkedList<Object>[]  getDatos() {
+
+        LinkedList[] datos = new LinkedList[3];
+
+        datos[0] = this.mesas;
+        datos[1] = this.cartaPlatos;
+        datos[2] = this.pedidos;
+
+        return datos;
+    }
+
+    public void setDatos(LinkedList<?>[] datos) {
+        this.mesas = (LinkedList<Mesa>) datos[0];
+        this.cartaPlatos = (LinkedList<Plato>) datos[1];
+        this.pedidos = (LinkedList<Pedido>) datos[2];
+    }
 }
