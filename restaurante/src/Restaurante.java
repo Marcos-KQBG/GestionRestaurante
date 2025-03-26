@@ -186,7 +186,7 @@ public class Restaurante {
 
     public void menuModificarPedido() {
         Pedido pedido = this.getPedidoNumeroMesa();
-        int decision;
+        int eleccion;
         
         do{
             System.out.println("¿Qué deseas hacer?");
@@ -200,27 +200,37 @@ public class Restaurante {
 
             System.out.println("Introduce una opción:");
 
-            decision = sc.nextInt();
+            eleccion = sc.nextInt();
         
-            switch(decision){
+            switch(eleccion){
                 case 1 -> {
                     pedido.cambiarCompletado();
                 }
                 case 2 -> {
-                    System.out.println("1. Nuevo Plato");
-                    System.out.println("2. Añadir Plato desde Carta");
                     int subopcion;
 
-                    subopcion = sc.nextInt();
+                    do{
+                        System.out.println("1. Nuevo Plato");
+                        System.out.println("2. Añadir Plato desde Carta");
+                        System.out.println("3. Salir");
+                        
 
-                    switch(subopcion){
-                        case 1 -> {pedido.addPlato(this.crearPlato());}
-                        case 2 -> { 
-                            System.out.println("Introduce un código de un plato: ");
-                            pedido.addPlato(this.platoByCodigo()); 
+                        subopcion = sc.nextInt();
+
+                        switch(subopcion){
+                            case 1 -> {
+                                pedido.addPlato(this.crearPlato());
+                                
+                            }
+                            case 2 -> { 
+                                System.out.println("Introduce un código de un plato: ");
+                                pedido.addPlato(this.platoByCodigo()); 
+                                System.out.println("Plato añadido correctamente");
+                            }
+                            default -> System.out.println("Introduzca una opcion valida");
+
                         }
-
-                    }
+                    }while(subopcion != 3);
                 }
                 
                 case 3 -> {
@@ -244,15 +254,19 @@ public class Restaurante {
                     
                 }
 
-                case 5 -> {pedido.aplicarDescuento(10);}
+                case 5 -> {
+                    pedido.aplicarDescuento(10);
+                    System.out.println("Descuento aplicado correctamente");
+                }
                 case 6 -> {
                     this.pedidos.remove(pedido);
                     System.out.println("Pedido borrado correctamente");
                 }
+                default -> System.out.println("Introduzca una opcion valida");
                 
             }
 
-        }while(decision != 7);
+        }while(eleccion != 7);
     }
 
     public void menuModificarPlato() {

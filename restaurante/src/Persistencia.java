@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 public class Persistencia {
 
-    private static final String PATH = "GestionRestaurante/restaurante/src/datos.dat";
+    private static final String PATH = "C:/Users/MarcosBlánquezGracia/Desktop/Programación/GestionRestaurante/GestionRestaurante/restaurante/src/datos.dat";
 
     public static void guardarDatos(LinkedList<Object>[] datos) {
 
